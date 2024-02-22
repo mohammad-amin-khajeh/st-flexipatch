@@ -190,10 +190,10 @@ static const char *colorname[] = {
 	[255] = 0,
 
 	/* more colors can be added after 255 to use with DefaultXX */
-	"#add8e6", /* 256 -> cursor */
-	"#555555", /* 257 -> rev cursor*/
-	"#000000", /* 258 -> bg */
-	"#e5e5e5", /* 259 -> fg */
+  "#dcdfe4", /* 256 -> cursor */
+  "#282c34", /* 257 -> rev cursor*/
+  "#1d2026", /* 258 -> bg */
+  "#dcdfe4", /* 259 -> fg */
 };
 
 
@@ -350,8 +350,8 @@ static MouseShortcut mshortcuts[] = {
 	{ XK_ANY_MOD,           Button2, selpaste,       {.i = 0},      1 },
 	#endif // CLIPBOARD_PATCH
 	#if SCROLLBACK_MOUSE_PATCH
-	{ XK_NO_MOD,            Button4, kscrollup,      {.i = 5},      0, S_PRI},
-	{ XK_NO_MOD,            Button5, kscrolldown,    {.i = 5},      0, S_PRI},
+	{ XK_NO_MOD,            Button4, kscrollup,      {.i = 3},      0, S_PRI},
+	{ XK_NO_MOD,            Button5, kscrolldown,    {.i = 3},      0, S_PRI},
 	#elif UNIVERSCROLL_PATCH
 	{ XK_ANY_MOD,           Button4, ttysend,        {.s = "\033[5;2~"}, 0, S_PRI },
 	{ XK_ANY_MOD,           Button5, ttysend,        {.s = "\033[6;2~"}, 0, S_PRI },
