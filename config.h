@@ -5,11 +5,10 @@
  *
  * font: see http://freedesktop.org/software/fontconfig/fontconfig-user.html
  */
-static char *font = "Comic Code Ligatures:pixelsize=16:antialias=true:autohint=true:style=medium";
+static char *font = "caskaydiaCove NF:pixelsize=16:antialias=true:autohint=true:style=regular";
 #if FONT2_PATCH
 /* Spare fonts */
 static char *font2[] = {
-"Comic Code Ligatures:pixelsize=16:antialias=true:autohint=true:style=medium",
 "caskaydiaCove NF:pixelsize=16:antialias=true:autohint=true",
 "joyPixels:pixelsize=16:antialias=true:autohint=true",
 "FontAwesome:pixelsize=16:antialias=true:autohint=true",
