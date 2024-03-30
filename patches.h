@@ -197,7 +197,7 @@
  * cursor).
  * https://www.reddit.com/r/suckless/comments/nvee8h/how_to_hide_cursor_in_st_is_there_a_patch_for_it/
  */
-#define HIDE_TERMINAL_CURSOR_PATCH 1
+#define HIDE_TERMINAL_CURSOR_PATCH 0
 
 /* This patch adds a keybinding that lets you invert the current colorscheme of st.
  * This provides a simple way to temporarily switch to a light colorscheme if you use a dark
