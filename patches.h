@@ -255,7 +255,7 @@
 /* Open contents of the clipboard in a user-defined browser.
  * https://st.suckless.org/patches/open_copied_url/
  */
-#define OPENCOPIED_PATCH 0
+#define OPENCOPIED_PATCH 1
 
 /* This patch allows for URLs to be opened directly when you click on them. This may not work with
  * all terminal applications.
