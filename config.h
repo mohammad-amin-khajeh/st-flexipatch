@@ -5,15 +5,15 @@
  *
  * font: see http://freedesktop.org/software/fontconfig/fontconfig-user.html
  */
-static char *font = "caskaydiaCove NF:pixelsize=16:antialias=true:autohint=true";
+static char *font = "jetbrainsmono nf:pixelsize=17:antialias=true:autohint=true";
 #if FONT2_PATCH
 /* Spare fonts */
 static char *font2[] = {
-"noto color emoji:pixelsize=16",
-"joyPixels:pixelsize=16:antialias=true:autohint=true",
-"FontAwesome:pixelsize=16:antialias=true:autohint=true",
-"Noto Sans CJK JP:pixelsize=16:antialias=true:autohint=true",
-"Arial:pixelsize=16:antialias=true:autohint=true",
+"noto color emoji:pixelsize=17",
+"joyPixels:pixelsize=17:antialias=true:autohint=true",
+"FontAwesome:pixelsize=17:antialias=true:autohint=true",
+"Noto Sans CJK JP:pixelsize=17:antialias=true:autohint=true",
+"Arial:pixelsize=17:antialias=true:autohint=true",
 };
 #endif // FONT2_PATCH
 
