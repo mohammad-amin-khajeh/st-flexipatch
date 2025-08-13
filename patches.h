@@ -39,7 +39,7 @@
 /* This patch allows st to resize to any pixel size rather than snapping to character width/height.
  * https://st.suckless.org/patches/anysize/
  */
-#define ANYSIZE_PATCH 1
+#define ANYSIZE_PATCH 0
 
 /* A simple variant of the anysize patch that only changes the resize hints to allow the window to
  * be resized to any size.
@@ -101,13 +101,13 @@
  * available URLs. This variant also highlights the selected URLs.
  * https://st.suckless.org/patches/copyurl/
  */
-#define COPYURL_HIGHLIGHT_SELECTED_URLS_PATCH 1
+#define COPYURL_HIGHLIGHT_SELECTED_URLS_PATCH 0
 
 /* This patch adds support for CSI escape sequences 22 and 23, which save and
  * restores the window title (for instance nvim does this when opening and closing).
  * https://st.suckless.org/patches/csi_22_23/
  */
-#define CSI_22_23_PATCH 1
+#define CSI_22_23_PATCH 0
 
 /* According to the specification (see link in BLINKING_CURSOR_PATCH) the "Set cursor style
  * (DECSCUSR), VT520." escape sequences define both values of 0 and 1 as a blinking block,
@@ -122,7 +122,7 @@
  * While many terminal emulators do this it is not adhering to specification. xterm is an
  * example terminal that sets a blinking block instead of the configured one, same as st.
  */
-#define DEFAULT_CURSOR_PATCH 1
+#define DEFAULT_CURSOR_PATCH 0
 
 /* Return BS on pressing backspace and DEL on pressing the delete key.
  * https://st.suckless.org/patches/delkey/
@@ -213,7 +213,7 @@
  * the terminal window.
  * https://st.suckless.org/patches/hidecursor/
  */
-#define HIDECURSOR_PATCH 1
+#define HIDECURSOR_PATCH 0
 
 /* This patch hides the terminal cursor when the window loses focus (as opposed to showing a hollow
  * cursor).
@@ -295,7 +295,7 @@
  * same CWD (current working directory) as the original st instance.
  * https://st.suckless.org/patches/newterm/
  */
-#define NEWTERM_PATCH 1
+#define NEWTERM_PATCH 0
 
 /* This patch will set the _MOTIF_WM_HINTS property for the st window which, if the window manager
  * respects it, will show the st window without window decorations.
@@ -308,7 +308,7 @@
 /* Open contents of the clipboard in a user-defined browser.
  * https://st.suckless.org/patches/open_copied_url/
  */
-#define OPENCOPIED_PATCH 1
+#define OPENCOPIED_PATCH 0
 
 /* Open the selected text using xdg-open.
  * https://st.suckless.org/patches/open_selected_text/
@@ -359,13 +359,13 @@
 /* Scroll back through terminal output using Shift+{PageUp, PageDown}.
  * https://st.suckless.org/patches/scrollback/
  */
-#define SCROLLBACK_PATCH 1
+#define SCROLLBACK_PATCH 0
 
 /* Scroll back through terminal output using Shift+MouseWheel.
  * This variant depends on SCROLLBACK_PATCH being enabled.
  * https://st.suckless.org/patches/scrollback/
  */
-#define SCROLLBACK_MOUSE_PATCH 1
+#define SCROLLBACK_MOUSE_PATCH 0
 
 /* Scroll back through terminal output using mouse wheel (when not in MODE_ALTSCREEN).
  * This variant depends on SCROLLBACK_PATCH being enabled.
@@ -465,7 +465,7 @@
  * scroll program.
  * https://st.suckless.org/patches/universcroll/
  */
-#define UNIVERSCROLL_PATCH 1
+#define UNIVERSCROLL_PATCH 0
 
 /* Use XftFontMatch in place of FcFontMatch.
  *
