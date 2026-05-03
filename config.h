@@ -442,10 +442,10 @@ static Shortcut shortcuts[] = {
 	{ XK_NO_MOD,            XK_F11,         fullscreen,      {.i =  0} },
 	{ MODKEY,               XK_Return,      fullscreen,      {.i =  0} },
 	#endif // FULLSCREEN_PATCH
-	#if SCROLLBACK_PATCH
+	#if SCROLLBACK_PATCH || REFLOW_PATCH
 	{ TERMMOD,              XK_K,           kscrollup,       {.i =  8}, S_PRI },
 	{ TERMMOD,              XK_J,           kscrolldown,     {.i =  8}, S_PRI },
-	#endif // SCROLLBACK_PATCH
+	#endif // SCROLLBACK_PATCH || REFLOW_PATCH
 	#if CLIPBOARD_PATCH
 	{ TERMMOD,              XK_Y,           clippaste,       {.i =  0} },
 	{ ShiftMask,            XK_Insert,      clippaste,       {.i =  0} },
