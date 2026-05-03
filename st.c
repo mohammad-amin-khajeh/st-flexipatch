@@ -1102,6 +1102,9 @@ tsetdirt(int top, int bot)
 {
 	int i;
 
+	if (term.row <= 0)
+		return;
+
 	LIMIT(top, 0, term.row-1);
 	LIMIT(bot, 0, term.row-1);
 
@@ -2451,10 +2454,22 @@ csihandle(void)
 			goto unknown;
 		}
 		break;
-	#if SYNC_PATCH
+	#if SYNC_PATCH || SIXEL_PATCH
 	case '$': /* DECRQM -- DEC Request Mode (private) */
 		if (csiescseq.mode[1] == 'p' && csiescseq.priv) {
 			switch (csiescseq.arg[0]) {
+			#if SIXEL_PATCH
+			case 80:
+				/* Sixel Display Mode  */
+				ttywrite(IS_SET(MODE_SIXEL_SDM) ? "\033[?80;1$y"
+				                                : "\033[?80;2$y", 9, 0);
+				break;
+			case 8452:
+				/* Sixel scrolling leaves cursor to right of graphic */
+				ttywrite(IS_SET(MODE_SIXEL_CUR_RT) ? "\033[?8452;1$y"
+				                                   : "\033[?8452;2$y", 11, 0);
+				break;
+			#endif // SIXEL_PATCH
 			#if SYNC_PATCH
 			case 2026:
 				/* https://gist.github.com/christianparpart/d8a62cc1ab659194337d73e399004036 */
@@ -2467,7 +2482,7 @@ csihandle(void)
 			break;
 		}
 		goto unknown;
-	#endif // SYNC_PATCH
+	#endif // SYNC_PATCH | SIXEL_PATCH
 	case 'r': /* DECSTBM -- Set Scrolling Region */
 		if (csiescseq.priv) {
 			goto unknown;
@@ -3320,6 +3335,7 @@ eschandle(uchar ascii)
 		resettitle();
 		xloadcols();
 		xsetmode(0, MODE_HIDE);
+		xsetmode(0, MODE_BRCKTPASTE);
 		#if SCROLLBACK_PATCH && !REFLOW_PATCH
 		if (!IS_SET(MODE_ALTSCREEN)) {
 			term.scr = 0;
@@ -3454,6 +3470,11 @@ check_control_code:
 			return;
 		#if SIXEL_PATCH
 		} else if (term.esc & ESC_DCS) {
+			/* Skip if DCS escape sequence buffer is full */
+			if (csiescseq.len >= sizeof(csiescseq.buf) - 1) {
+				return;
+			}
+
 			csiescseq.buf[csiescseq.len++] = u;
 			if (BETWEEN(u, 0x40, 0x7E)
 					|| csiescseq.len >= \
