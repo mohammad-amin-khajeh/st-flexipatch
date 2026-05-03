@@ -380,6 +380,12 @@
  */
 #define SELECTION_COLORS_PATCH 0
 
+/* This patch works with selectioncolors and alpha patches to make selection
+ * background color transparent.
+ * https://st.suckless.org/patches/selectionbg-alpha/
+ */
+#define SELECTIONBG_ALPHA_PATCH 0
+
 /* This is the single drawable buffer patch as outlined in the FAQ to get images
  * in w3m to display. While this patch does not break the alpha patch it images
  * are not shown in w3m if the alpha patch is applied.
@@ -529,3 +535,10 @@
  * Depends on the XRESOURCES_PATCH.
  */
 #define XRESOURCES_RELOAD_PATCH 0
+
+/* This patch adds the ability to configure st via Xdefaults, in addition to Xresources,
+ * like the rxvt-unicode terminal. At startup, st will read and apply the system and user's
+ * local Xdefault files, the XServer's Xresources, and the screen and per-host Xdefaults.
+ * This patch depends on XRESOURCES_PATCH and is compatible with XRESOURCES_RELOAD_PATCH.
+ */
+#define XRESOURCES_XDEFAULTS_PATCH 0
